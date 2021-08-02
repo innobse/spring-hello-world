@@ -6,8 +6,11 @@
 
     <bean id="mySuperLogger" class="ru.bse71.learnup.spring.hello.services.Logger" />
     
-    <bean id="mySuperService" class="ru.bse71.learnup.spring.hello.services.SuperService">
-        <constructor-arg ref="mySuperLogger" />
+    <bean id="mySuperService" class="ru.bse71.learnup.spring.hello.services.SuperService"
+          init-method="init" destroy-method="destroyCustom">
+        <constructor-arg name="logger" type="ru.bse71.learnup.spring.hello.services.Logger" ref="mySuperLogger" />
     </bean>
+
+    <bean class="ru.bse71.learnup.spring.hello.services.MyPostProcessor" />
 
 </beans>

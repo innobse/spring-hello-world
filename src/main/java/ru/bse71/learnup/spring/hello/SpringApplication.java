@@ -1,6 +1,6 @@
 package ru.bse71.learnup.spring.hello;
 
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.bse71.learnup.spring.hello.services.SuperService;
 
@@ -13,9 +13,11 @@ import ru.bse71.learnup.spring.hello.services.SuperService;
 public class SpringApplication {
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("myConfig.xml");
+        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("myConfig.xml");
         SuperService service = context.getBean(SuperService.class);
 
         service.doWork();
+
+        context.registerShutdownHook();
     }
 }
