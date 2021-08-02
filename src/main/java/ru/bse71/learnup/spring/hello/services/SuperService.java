@@ -17,4 +17,8 @@ public class SuperService {
     public void doWork() {
         logger.log("I start working!");
     }
+
+    public Logger getLogger() {
+        return null;
+    }
 }

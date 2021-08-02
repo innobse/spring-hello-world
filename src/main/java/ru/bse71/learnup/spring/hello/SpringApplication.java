@@ -17,5 +17,7 @@ public class SpringApplication {
         SuperService service = context.getBean(SuperService.class);
 
         service.doWork();
+
+        service.getLogger().log("This is a logger, which got by lookup");
     }
 }

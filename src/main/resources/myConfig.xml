@@ -8,6 +8,7 @@
     
     <bean id="mySuperService" class="ru.bse71.learnup.spring.hello.services.SuperService">
         <constructor-arg ref="mySuperLogger" />
+        <lookup-method name="getLogger" bean="mySuperLogger" />
     </bean>
 
 </beans>
