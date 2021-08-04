@@ -1,5 +1,7 @@
 package ru.bse71.learnup.spring.hello.services;
 
+import java.util.List;
+
 /**
  * Application logger
  *
@@ -9,12 +11,18 @@ package ru.bse71.learnup.spring.hello.services;
 public class SuperService {
 
     private Logger logger;
+    private List<Calculator> calculators;
 
-    public SuperService(Logger logger) {
+    public void setLogger(Logger logger) {
         this.logger = logger;
+    }
+
+    public void setCalculators(List<Calculator> calculators) {
+        this.calculators = calculators;
     }
 
     public void doWork() {
         logger.log("I start working!");
+        calculators.forEach(Calculator::calculate);
     }
 }

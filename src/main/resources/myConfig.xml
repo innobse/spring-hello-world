@@ -4,10 +4,21 @@
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="megaCalculator" class="ru.bse71.learnup.spring.hello.services.MegaCalculator" />
+    <bean id="superCalculator" class="ru.bse71.learnup.spring.hello.services.SuperCalculator" />
+    <bean id="puperCalculator" class="ru.bse71.learnup.spring.hello.services.PuperCalculator" />
+
     <bean id="mySuperLogger" class="ru.bse71.learnup.spring.hello.services.Logger" />
     
     <bean id="mySuperService" class="ru.bse71.learnup.spring.hello.services.SuperService">
-        <constructor-arg ref="mySuperLogger" />
+        <property name="logger" ref="mySuperLogger" />
+        <property name="calculators">
+            <list>
+                <ref bean="megaCalculator" />
+                <ref bean="superCalculator" />
+                <ref bean="puperCalculator" />
+            </list>
+        </property>
     </bean>
 
 </beans>
