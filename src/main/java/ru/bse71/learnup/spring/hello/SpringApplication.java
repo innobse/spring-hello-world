@@ -14,8 +14,12 @@ public class SpringApplication {
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("myConfig.xml");
-        SuperService service = context.getBean(SuperService.class);
 
-        service.doWork();
+        for (int i = 0; i < 3; i++) {
+            System.out.println(
+                    context
+                            .getBean(SuperService.class)
+                            .hashCode());
+        }
     }
 }

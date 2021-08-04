@@ -6,7 +6,7 @@
 
     <bean id="mySuperLogger" class="ru.bse71.learnup.spring.hello.services.Logger" />
     
-    <bean id="mySuperService" class="ru.bse71.learnup.spring.hello.services.SuperService">
+    <bean id="mySuperService" class="ru.bse71.learnup.spring.hello.services.SuperService" scope="prototype">
         <constructor-arg ref="mySuperLogger" />
     </bean>
 
