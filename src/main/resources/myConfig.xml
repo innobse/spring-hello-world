@@ -5,10 +5,14 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="mySuperLogger" class="ru.bse71.learnup.spring.hello.services.Logger" />
-    
+
+    <bean id="serviceReplacer" class="ru.bse71.learnup.spring.hello.services.ServiceReplacer" />
+
     <bean id="mySuperService" class="ru.bse71.learnup.spring.hello.services.SuperService">
         <constructor-arg ref="mySuperLogger" />
         <lookup-method name="getLogger" bean="mySuperLogger" />
+        <replaced-method name="doWork" replacer="serviceReplacer" />
     </bean>
+
 
 </beans>
