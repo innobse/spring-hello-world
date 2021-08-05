@@ -1,5 +1,8 @@
 package ru.bse71.learnup.spring.hello.services;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 /**
  * Application logger
  *
@@ -15,6 +18,7 @@ public class SuperService {
     }
 
     public void doWork() {
-        logger.log("I start working!");
+        final ResourceBundle resources = ResourceBundle.getBundle("text", Locale.ITALY);
+        logger.log(resources.getString("startworking"));
     }
 }
